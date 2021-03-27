@@ -6,11 +6,20 @@
     <title>Formularze</title>
 </head>
 <body>
-    <form>
-        <p>
-            Wpisz swoje imie:
-        </p>
-        <input size="50" name='imie' id='imie' maxlength="10">
+    <h2>Formularz do wyszukiwarki Google</h2>
+    <form method='GET' action="https://www.google.com/search">
+        Szukaj w Google: <input name='q'>
+        Język:
+        <select name="hl">
+            <option value="pl">polski</option>
+            <option value="en">angielski</option>
+            <option value="de">niemiecki</option>
+            <option value="ar">arabski</option>
+            <option value="fr" selected>francuski</option>
+            <option value="he">hebrajski</option>
+          </select>
+        <input type='submit' value="Szukaj w Google">
     </form>
+
 </body>
 </html>
