@@ -10,3 +10,6 @@
 
 ## Linki:
 * https://desktop.github.com/
+
+## Programy na macOS
+* https://www.cleverfiles.com/howto/top-5-photo-editing-apps-mac.html
