@@ -1,1 +1,5 @@
-# 2021-03-27-alx-javascript
+# Notatka ze szkolenia
+
+## Elementy HTML
+
+* https://developer.mozilla.org/en-US/docs/Web/HTML/Element
