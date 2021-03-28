@@ -25,6 +25,12 @@ h1, h2, h3, h4, h5, h6, p, li {
     text-shadow: black 1px 1px 2px;
 }
 
+h1 + p {
+    /* paragraf występujący bezpośrednio po nagłówku h1 */
+    
+    font-size: 15pt;
+}
+
 p {
     text-align: justify;
 }
@@ -91,7 +97,6 @@ nav ul li a:hover {
     text-shadow: #fff 0 0 3px;
     background-color: #000;
 }
-
 
 p:hover {
     background-color: #0056;
