@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, h6, p, li {
 
 h1 + p {
     /* paragraf występujący bezpośrednio po nagłówku h1 */
-    
+
     font-size: 15pt;
 }
 
@@ -100,5 +100,24 @@ nav ul li a:hover {
 
 p:hover {
     background-color: #0056;
+}
 
+#swiat > li {
+    /* tylko li bezpośrednio w #swiat 
+    a więc li zagnieżgdżone w kolejnym ul już nie są wybierane
+    */
+    outline: 1px solid orange;
+}
+
+#swiat > li:nth-of-type(2){
+    background-color: pink;
+}
+
+#poryroku li:nth-of-type(2n+1){
+    background-color: white;
+}
+
+li[data-code="PL"] {
+    color: white;
+    background-color: red;
 }

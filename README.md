@@ -8,6 +8,12 @@
 
 * https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data
 
+## CSS
+
+### Selektory:
+* https://www.w3schools.com/cssref/css_selectors.asp
+* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
+
 ## Linki:
 * https://desktop.github.com/
 
