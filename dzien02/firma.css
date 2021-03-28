@@ -48,23 +48,43 @@ ol li {
 }
 
 nav {
-    border: 4px solid white;
+    xborder: 4px solid white;
 }
 
 nav ul {
-    border: 4px solid red;
+    display: flex;
+    justify-content: space-between;
+    xborder: 4px solid red;
+    list-style: none;
+    padding: 0;
 }
 
 nav ul li {
-    border: 4px solid #f90;
+    xborder: 4px solid #f90;
+    width: 15%;
 }
 
 nav ul li a {
+    text-align: center;
+    text-decoration: none;
+    display: block;
     color: #fff;
-    border: 4px solid #35f;
+    xborder: 4px solid #35f;
     font-size: 19pt;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 nav ul li a:visited {
     color: #f9e;
+}
+
+nav ul li a:hover {
+    background-color: #000;
+}
+
+
+p:hover {
+    background-color: #0056;
+
 }
