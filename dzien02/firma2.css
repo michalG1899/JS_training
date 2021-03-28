@@ -88,6 +88,17 @@ body.noc nav a:hover {
     background-color: rgb(6, 6, 68);
 }
 
+body.noc textarea {
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #ff90e0;
+}
+
+body.noc button {
+    color: #f9e;
+    background-color: #000;
+    border: 1px solid #ff90e0;
+}
 
 
 nav ul {
