@@ -1,0 +1,21 @@
+<firma>
+    <nazwa>XYZ</nazwa>
+    <pracownicy>
+        <pracownik>
+            <imie>Mateusz</imie>
+            <nazwisko>Adamowski</nazwisko>
+        </pracownik>
+        <pracownik>
+            <imie>ABC</imie>
+            <nazwisko>XYZ</nazwisko>
+            <zdalny />
+        </pracownik>
+    </pracownicy>
+
+    <koszty>
+        <koszt>
+            <opis>Komputery</opis>
+            <wartosc waluta="PLN">10000</wartosc>
+        </koszt>
+    </koszty>
+</firma>
