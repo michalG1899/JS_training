@@ -17,5 +17,17 @@ td {
 p {
     color: #000000;
     text-align: justify;
+    background-color: #ee4455;
+    padding: 5px;
+}
 
+u {
+    color: #ffffff;
+    background-color: #440044;
+}
+
+header {
+    color: #ffffff;
+    background-color: #557755;
+    padding: 20px;
 }
