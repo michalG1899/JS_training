@@ -1,0 +1,25 @@
+body {
+    background-image: url(ocean1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #ccc;
+    font-family: sans-serif;
+}
+
+main {
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
+    width: 960px;
+    margin: auto;
+    padding: 50px;
+    border-radius: 16px;
+}
+
+h1 {
+    text-shadow: black 1px 1px 3px;
+}
+
+p {
+    text-shadow: black 1px 1px 2px;
+    text-align: justify;
+}
