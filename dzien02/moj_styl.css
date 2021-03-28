@@ -1,13 +1,20 @@
+html {
+    margin: 0;
+    padding: 0;
+}
 body {
     font-family: Georgia, serif;
     color: red;
+    margin: 0;
+    padding: 0;
 }
 h1 {
     color: green;
     background-color: #ffff44;
     font-family: PokemonFont2, Tahoma, Arial, sans-serif;
     font-size: 50pt;
-    border: 50px solid black;
+    border: 5px solid black;
+    margin-top: 0;
 }
 th {
     color: rgb(40, 81, 156);
@@ -21,7 +28,9 @@ p {
     text-align: justify;
     background-color: #ee4455;
     padding: 5px;
+    padding-left: 50px;
     margin: 0px;
+    margin-right: 140px;
     outline: 1px solid black;
 }
 
@@ -33,5 +42,10 @@ u {
 header {
     color: #ffffff;
     background-color: #557755;
-    padding: 20px;
+    padding: 20px 200px 0 50px;
+}
+
+main {
+    width: 900px;
+    margin: auto;
 }
