@@ -51,10 +51,20 @@ body {
 }
 
 main {
-    background-color: rgba(0,0,0,0.6);
-    color: #fff;
-
+    background-color: rgba(255,255,255,0.6);
+    color: #000;
 }
+
+nav a {
+    color: #45d;
+}
+
+nav a:hover {
+    color: #27f;
+    text-shadow: #27f 0 0 3px;
+    background-color: #ddf;
+}
+
 
 nav ul {
     display: flex;
@@ -69,18 +79,8 @@ nav ul li a {
     text-align: center;
     text-decoration: none;
     display: block;
-    color: #fff;
     font-size: 19pt;
     padding: 10px;
     border-radius: 8px;
 }
 
-nav ul li a:visited {
-    color: rgb(197, 202, 214);
-}
-
-nav ul li a:hover {
-    color: #fff;
-    text-shadow: #fff 0 0 3px;
-    background-color: #000;
-}
