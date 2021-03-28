@@ -40,6 +40,8 @@ u {
 }
 
 header {
+    font-family: 'New Tegomin', serif;
+    font-size: 40pt;
     color: #ffffff;
     background-color: #557755;
     padding: 20px 200px 0 50px;
