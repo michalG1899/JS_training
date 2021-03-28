@@ -1,3 +1,9 @@
+/* plik styli CSS
+   autor: Mateusz A.
+   szkolenie JS w ALX
+   */
+
+
 body {
     background-image: url(ocean1.jpg);
     background-size: cover;
@@ -47,20 +53,21 @@ ol li {
     background-color: #336;
 }
 
+
+/* menu górne strony */
+
 nav {
-    xborder: 4px solid white;
 }
 
 nav ul {
     display: flex;
     justify-content: space-between;
-    xborder: 4px solid red;
     list-style: none;
     padding: 0;
 }
 
 nav ul li {
-    xborder: 4px solid #f90;
+    /* border: 4px solid #f90; */
     width: 15%;
 }
 
@@ -70,7 +77,6 @@ nav ul li a {
     text-decoration: none;
     display: block;
     color: #fff;
-    xborder: 4px solid #35f;
     font-size: 19pt;
     padding: 10px;
     border-radius: 8px;
