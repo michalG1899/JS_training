@@ -46,3 +46,25 @@ ol li {
 #vivamus u {
     background-color: #336;
 }
+
+nav {
+    border: 4px solid white;
+}
+
+nav ul {
+    border: 4px solid red;
+}
+
+nav ul li {
+    border: 4px solid #f90;
+}
+
+nav ul li a {
+    color: #fff;
+    border: 4px solid #35f;
+    font-size: 19pt;
+}
+
+nav ul li a:visited {
+    color: #f9e;
+}
