@@ -27,3 +27,15 @@ p {
 #vivamus {
     font-size: 18pt;
 }
+
+li {
+    color: #5f5;
+}
+
+.weekend {
+    color: #c11;
+}
+
+li.weekend {
+    background-color: #fff;
+}
