@@ -3,6 +3,10 @@ html {
     padding: 0;
 }
 body {
+    background-color: #aadd33;
+    background-image: url(wzorek.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: Georgia, serif;
     color: red;
     margin: 0;
