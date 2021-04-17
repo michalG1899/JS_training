@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NaukaJS</title>
+    <style>
+        output {
+            outline: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+        <h1>NaukaJS</h1>
+        <p>Liczba A <input id='la'></input></p>
+        <p>Liczba B <input id='lb'></input></p>
+
+        <button onclick="przelicz()">SUMA</button>
+        <p>Suma: <output id='sum'></output></p>
+
+        <script>
+            function przelicz() {
+
+                liczbaA = document.querySelector('#la').value * 1;
+                liczbaB = document.querySelector('#lb').value * 1;
+                suma = liczbaA + liczbaB;
+
+                document.querySelector('#sum').value = suma;
+
+            }
+            
+        </script>
+    </body>
+</body>
+
+</html>

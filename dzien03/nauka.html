@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NaukaJS</title>
+    <style>
+        output {
+            outline: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+        <h1>NaukaJS</h1>
+        <p>Cena netto: <input id='cn'></output></p>
+        <p>Ilość sztuk: <input id='il'></output></p>
+
+        <p>Cena brutto: <output id='cb'></output></p>
+        <p>Cena podatek: <output id='pd'></output></p>
+        <button onclick="przelicz()">Przelicz</button>
+
+        <script>
+            function przelicz() {
+
+                cenaNetto = document.querySelector('#cn').value * document.querySelector('#il').value;
+                cenaBrutto = cenaNetto * 1.23;
+                podatekVat = cenaNetto * 0.23;
+
+                document.querySelector('#cb').value = cenaBrutto;
+                // document.querySelector('#cn').value = cenaNetto;
+                document.querySelector("#pd").value = podatekVat;
+
+            }
+
+            
+
+        </script>
+    </body>
+</body>
+
+</html>
