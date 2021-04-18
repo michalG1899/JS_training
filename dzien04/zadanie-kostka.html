@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rzut kostką</title>
+    <style>
+        output#kostka_obraz {
+            font-size: 5em;
+        }
+        body > p:nth-of-type(2) {
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="rzuc()">RZUĆ KOSTKĄ</button><br>
+    <p>Wylosowana liczba: <output id='kostka'>XXX</output></p>
+    <output id='kostka_obraz'>XXX</output>
+
+    <p>Liczba rzutów: <output id='liczbaRzutow'>0</output></p>
+
+    <p>Licznik dla wyniku [1]: <output id='wynik1'>???</output></p>
+    <p>Wykres dla wyniku [1]: <output id='wynik11'>???</output></p>
+    <p>Licznik dla wyniku [2]: <output id='wynik2'>???</output></p>
+    <p>Wykres dla wyniku [2]: <output id='wynik22'>???</output></p>
+    <p>Licznik dla wyniku [3]: <output id='wynik3'>???</output></p>
+    <p>Wykres dla wyniku [3]: <output id='wynik33'>???</output></p>
+    <p>Licznik dla wyniku [4]: <output id='wynik4'>???</output></p>
+    <p>Wykres dla wyniku [4]: <output id='wynik44'>???</output></p>
+    <p>Licznik dla wyniku [5]: <output id='wynik5'>???</output></p>
+    <p>Wykres dla wyniku [5]: <output id='wynik55'>???</output></p>
+    <p>Licznik dla wyniku [6]: <output id='wynik6'>???</output></p>
+    <p>Wykres dla wyniku [6]: <output id='wynik66'>???</output></p>
+
+
+    <script src='kostka.js'></script>
+</body>
+</html>

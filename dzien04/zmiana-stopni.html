@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Przeliczanie temperatur</h1>
+
+    <p>Podaj temp. w &deg;C: <input id='tempC'></p>
+    <p>Wartość w &deg;F: <output id='tempF'></output></p>
+    <button onclick='przelicz_btn()'>Przelicz</button>
+
+    <script>
+        function przelicz_btn(){
+            var tC = parseFloat(document.querySelector('input#tempC').value);
+            var tF = przelicz_C_na_F(tC);
+            document.querySelector('#tempF').value = tF;
+        }
+
+        // zadanie: dopisać funkcję przelicz_C_na_F -- uwaga na wielkość liter
+
+        function przelicz_C_na_F(tC) {
+            return tC * 9/5 + 32;
+        }
+
+    </script>
+</body>
+</html>

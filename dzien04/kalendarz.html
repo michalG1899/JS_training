@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td,
+        th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Miesiące</h1>
+
+    <table id='kalendarz'>
+        <tr>
+            <th>nazwa</th>
+            <th>długość</th>
+        </tr>
+    </table>
+
+    <p>Zadanie: napisać kod Javascript, który automatycznie wypełni tabelkę nazwami i długościami kolejnych miesięcy</p>
+
+    <!--
+        Przykład:
+            <tr><td>styczeń</td><td>31</td></tr>
+            <tr><td>luty</td><td>28</td></tr>
+            ...
+    -->
+    
+    <script>
+        miesiace = [
+            "styczeń", "luty", "marzec", "kwiecień",
+            "maj", "czerwiec", "lipiec", "sierpień",
+            "wrzesień", "październik", "listopad", "grudzień"
+        ];
+        dlugosci = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+                for (var i = 0; i < 12; i++) {
+                document.querySelector('#kalendarz').innerHTML += '<tr><td>' + miesiace[i] + '</td><td>' + dlugosci[i] + '</td></tr>';
+            }
+        
+    </script>
+
+</body>
+
+</html>
