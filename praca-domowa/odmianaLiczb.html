@@ -8,7 +8,7 @@
 </head>
 <body>
    <p>Wpisz liczbę: <input id='liczba' type="number" step="1" min="0" oninput="validity.valid||(value='');"></output></p>
-   <button onclick="zamienNaSlowo()">Liczba słownie</button>
+   <button onclick="zamienNaSlowo(document.querySelector('#liczba').value)">Liczba słownie</button>
    <p><output id='wynik'>-</output> </p>
    <script src='odmianaLiczb.js'></script>
 </body>
