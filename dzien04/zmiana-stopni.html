@@ -9,9 +9,9 @@
 <body>
     <h1>Przeliczanie temperatur</h1>
 
-    <p>Podaj temp. w &deg;C: <input id='tempC'></p>
+    <p>Podaj temp. w &deg;C: <input id='tempC' onkeyup="przelicz_btn()"></p>
     <p>Wartość w &deg;F: <output id='tempF'></output></p>
-    <button onclick='przelicz_btn()'>Przelicz</button>
+    <!-- <button onclick='przelicz_btn()'>Przelicz</button> -->
 
     <script>
         function przelicz_btn(){
