@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pola figur płaskich</title>
+    <style>
+        
+        div {
+            font-size: 12pt;
+            margin: 10px 300px 50px;
+            box-sizing: border-box;
+            text-align: center;
+            border-style: solid;
+            border-color: coral;
+        }
+
+        #trojkat {
+            text-align: center;
+            border: 3px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="trojkat">
+        <p>TRÓJKĄT</p>
+        <p>Podaj wymiar podstawy w cm</p>
+        <input id='podstawa' type="number" step=0.01 min="0" oninput="validity.valid||(value='');">
+        <p>Podaj wymiar wysokości w cm</p>
+        <input id='wysokosc' type="number" step=0.001><br>
+        <button onclick="poleTrojkata()">Oblicz pole</button>
+        <p>Powierzchnia: <output id='wynikTrojkat'></output></p>
+    </div>
+    <div id="kwadrat">
+        <p>KWADRAT</p>
+        <p>Podaj wymiar boku w cm</p>
+        <input id='podstawa' type="number" step=0.01 min="0" oninput="validity.valid||(value='');"><br>
+        <button onclick="poleKwadratu()">Oblicz pole</button><br>
+        <p>Powierzchnia: <output id='wynikKwadrat'></output></p>
+    </div>
+
+    <div id="okrag">
+        <p>OKRĄG</p>
+        <p>Podaj promień w cm</p>
+        <input id='promien' type="number" step=0.01 min="0" oninput="validity.valid||(value='');"><br>
+        <button onclick="poleOkręgu()">Oblicz pole</button><br>
+        <p>Powierzchnia: <output id='wynikOkrag'></output></p>
+    </div>
+
+    <script>
+        function poleTrojkata() {
+            var podstawa = document.querySelector('#podstawa').value;
+            var wysokosc = document.querySelector('#wysokosc').value;
+            var poleTrojkata = 0.5 * podstawa * wysokosc;
+            document.querySelector('#wynikTrojkat').value = `${poleTrojkata.toFixed(2)} cm2`;
+        }
+
+        function poleKwadratu() {
+            var podstawa = document.querySelector('#podstawa').value;
+            var poleKwadratu = podstawa * podstawa;
+            document.querySelector('#wynikKwadrat').value = `${poleKwadratu.toFixed(2)} cm2`;
+        }
+
+        function poleOkręgu() {
+            var promien = document.querySelector('#promien').value;
+            var poleOkrag = Math.PI * Math.pow(promien, 2);
+            document.querySelector('#wynikOkrag').value = `${poleOkrag.toFixed(2)} cm2`;
+        }
+    </script>
+</body>
+
+</html>
