@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <button onclick="losujLiczby()">WYLOSUJ</button><br>
+    <button onclick="wylosujWygraneNumery()">WYLOSUJ</button><br>
 
     <table>
         <p>Zwycięskie numery:</p>
@@ -41,6 +41,7 @@
     <table>
         <p>Prawdopodobieństwo wylosowania:</p>
         <tr>
+            <th>"zero trafień"</th>
             <th>"jedynki"</th>
             <th>"dwójki"</th>
             <th>"trójki"</th>
@@ -55,30 +56,49 @@
             <td id='p3'>-</td>
             <td id='p4'>-</td>
             <td id='p5'>-</td>
+            <td id='p6'>-</td>
         </tr>
     </table><br>
     <script>
-        var wylosowaneLiczby = [0, 0, 0, 0, 0, 0];
-        var wylosowaneKupony = [0, 0, 0, 0, 0, 0];
+        var wylosowaneNumery = [];
+        var wylosowaneKupony = [];
+        var tymczasowyKupon = [];
 
-        function losujLiczby() {
+        var zero = 0;
+        var jedynka = 0;
+        var dwojka = 0;
+        var trojka = 0;
+        var czworka = 0;
+        var piatka = 0;
+        var szostka = 0;
+
+        function wylosujWygraneNumery() {
+            wylosowaneNumery = losuj();
+        }
+
+        function losuj() {
+            var wylosowaneLiczby = [];
             for (let i = 0; i <= 5; i++) {
                 wylosowaneLiczby[i] = Math.round(Math.random() * 49 + 1);
                 document.querySelector('#o' + i).textContent = wylosowaneLiczby[i];
             }
-            // console.log(wylosowaneLiczby);
+            return wylosowaneLiczby;
         }
 
         function sprawdzPrawdopodobienswto() {
             for (let i = 1; i <= 1000; i++) {
-                wylosowaneKupony[i] = sprawdzKupon();
+
+                var licznik = 0;
+                tymczasowyKupon = losuj();
+                for (let j = 0; j < tymczasowyKupon.length; j++) {
+                    for (let k = 0; k < wylosowaneNumery.length; k++) {
+                        if (tymczasowyKupon[i] === wylosowaneNumery[k]) {
+                                licznik++;
+                        }
+                    }
+                }
             }
         }
-
-        function sprawdzKupon() {
-            return ile numerow zgadza sie z kuponem
-        }
-        
 
     </script>
 </body>
