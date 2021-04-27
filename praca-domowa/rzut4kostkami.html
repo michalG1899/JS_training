@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rzut kostką</title>
+    <style>
+        output#kostka1_obraz {
+            font-size: 5em;
+        }
+
+        output#kostka2_obraz {
+            font-size: 5em;
+        }
+
+        output#kostka3_obraz {
+            font-size: 5em;
+        }
+
+        output#kostka4_obraz {
+            font-size: 5em;
+        }
+
+        body>p:nth-of-type(2) {
+            font-size: 2em;
+        }
+        output#wynik {
+            font-size: 2em;
+            cursor: default;
+        }
+        td, th {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+        main {
+            width: 400px;
+            margin: auto;
+            text-align: center;
+        }
+
+        tr#wykresy div {
+            outline: 1px solid red;
+            background-color: red;
+            width: 5px;
+        }
+
+        tr#wykresy td {
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="rzuc4kostkami()">RZUĆ 4 KOŚCIAMI</button><br>
+
+    <p>Wylosowane liczby: <output id='kostka1'>-</output>
+        <output id='kostka2'>-</output>
+        <output id='kostka3'>-</output>
+        <output id='kostka4'>-</output>
+    </p>
+    <output id='kostka1_obraz'>-</output>
+    <output id='kostka2_obraz'>-</output>
+    <output id='kostka3_obraz'>-</output>
+    <output id='kostka4_obraz'>-</output>
+
+    <p>Suma wylosowanych pól: <output id='wynik'>0</output></p>
+
+    <p>Wpisz liczbę rzutów do symulacji: <input id='liczba' type="number" step="1" min="0"
+            oninput="validity.valid||(value='');"></output></p>
+    <button onclick="wyczysc(); zasymulujRzuty(document.querySelector('#liczba').value)">ZASYMULUJ</button><br>
+
+    <p>Licznik dla wyniku [1]: <output id='wynik1'>???</output></p>
+    <p>Licznik dla wyniku [2]: <output id='wynik2'>???</output></p>
+    <p>Licznik dla wyniku [3]: <output id='wynik3'>???</output></p>
+    <p>Licznik dla wyniku [4]: <output id='wynik4'>???</output></p>
+    <p>Licznik dla wyniku [5]: <output id='wynik5'>???</output></p>
+    <p>Licznik dla wyniku [6]: <output id='wynik6'>???</output></p>
+
+    <table>
+    <tr id='wykresy'>
+        <td id='w1'><div></div></td>
+        <td id='w2'><div></div></td>
+        <td id='w3'><div></div></td>
+        <td id='w4'><div></div></td>
+        <td id='w5'><div></div></td>
+        <td id='w6'><div></div></td>
+    </tr>
+    </table>
+
+    <script>
+
+        licznik = [0, 0, 0, 0, 0, 0];
+
+        var wynik1 = 0;
+        var wynik2 = 0;
+        var wynik3 = 0;
+        var wynik4 = 0;
+        var wynik5 = 0;
+        var wynik6 = 0;
+
+        function wyczysc() {
+
+            wynik1 = 0;
+            wynik2 = 0;
+            wynik3 = 0;
+            wynik4 = 0;
+            wynik5 = 0;
+            wynik6 = 0;
+
+            document.querySelector('#wynik1').value = wynik1;
+            document.querySelector('#wynik2').value = wynik2;
+            document.querySelector('#wynik3').value = wynik3;
+            document.querySelector('#wynik4').value = wynik4;
+            document.querySelector('#wynik5').value = wynik5;
+            document.querySelector('#wynik6').value = wynik6;
+
+            document.querySelector("#w1 div").style.height = 0;
+            document.querySelector("#w2 div").style.height = 0;
+            document.querySelector("#w3 div").style.height = 0;
+            document.querySelector("#w4 div").style.height = 0;
+            document.querySelector("#w5 div").style.height = 0;
+            document.querySelector("#w6 div").style.height = 0;
+        }
+
+        function zasymulujRzuty(ogolnaLiczbaRzutow) {
+
+            for (let i = 0; i < ogolnaLiczbaRzutow; i++) {
+
+                rzut = Math.floor(Math.random() * 6 + 1);
+                document.querySelector("#w" + rzut + " div").style.height = wynik1 * 2 + "px";
+
+                if (rzut == 1) {
+                    wynik1++;
+                } else if (rzut == 2) {
+                    wynik2++;
+                } else if (rzut == 3) {
+                    wynik3++;
+                } else if (rzut == 4) {
+                    wynik4++;
+                } else if (rzut == 5) {
+                    wynik5++;
+                } else {
+                    wynik6++;
+                }
+            }
+
+            document.querySelector('#wynik1').value = wynik1;
+            document.querySelector('#wynik2').value = wynik2;
+            document.querySelector('#wynik3').value = wynik3;
+            document.querySelector('#wynik4').value = wynik4;
+            document.querySelector('#wynik5').value = wynik5;
+            document.querySelector('#wynik6').value = wynik6;
+
+        }
+
+        function rzuc4kostkami() {
+            tab = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+            rzut1 = Math.floor(Math.random() * 6 + 1);
+            rzut2 = Math.floor(Math.random() * 6 + 1);
+            rzut3 = Math.floor(Math.random() * 6 + 1);
+            rzut4 = Math.floor(Math.random() * 6 + 1);
+
+            document.querySelector('#kostka1').value = rzut1;
+            document.querySelector('#kostka2').value = rzut2;
+            document.querySelector('#kostka3').value = rzut3;
+            document.querySelector('#kostka4').value = rzut4;
+
+
+            document.querySelector('#kostka1_obraz').value = tab[rzut1 - 1];
+            document.querySelector('#kostka2_obraz').value = tab[rzut2 - 1];
+            document.querySelector('#kostka3_obraz').value = tab[rzut3 - 1];
+            document.querySelector('#kostka4_obraz').value = tab[rzut4 - 1];
+
+            document.querySelector('#wynik').value = rzut1 + rzut2 + rzut3 + rzut4;
+
+        }
+    </script>
+</body>
+
+</html>
