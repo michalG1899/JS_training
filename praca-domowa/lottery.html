@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loteria</title>
+    <style>
+        td,
+        th {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="losujLiczby()">WYLOSUJ</button><br>
+
+    <table>
+        <p>Zwycięskie numery:</p>
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+        </tr>
+        <tr>
+            <td id='o0'>-</td>
+            <td id='o1'>-</td>
+            <td id='o2'>-</td>
+            <td id='o3'>-</td>
+            <td id='o4'>-</td>
+            <td id='o5'>-</td>
+        </tr>
+    </table><br>
+    <button onclick="sprawdzPrawdopodobienswto()">Sprawdź 1000 kuponów</button><br>
+    <table>
+        <p>Prawdopodobieństwo wylosowania:</p>
+        <tr>
+            <th>"jedynki"</th>
+            <th>"dwójki"</th>
+            <th>"trójki"</th>
+            <th>"czwórki"</th>
+            <th>"piątki"</th>
+            <th>"szóstki"</th>
+        </tr>
+        <tr>
+            <td id='p0'>-</td>
+            <td id='p1'>-</td>
+            <td id='p2'>-</td>
+            <td id='p3'>-</td>
+            <td id='p4'>-</td>
+            <td id='p5'>-</td>
+        </tr>
+    </table><br>
+    <script>
+        var wylosowaneLiczby = [0, 0, 0, 0, 0, 0];
+        var wylosowaneKupony = [0, 0, 0, 0, 0, 0];
+
+        function losujLiczby() {
+            for (let i = 0; i <= 5; i++) {
+                wylosowaneLiczby[i] = Math.round(Math.random() * 49 + 1);
+                document.querySelector('#o' + i).textContent = wylosowaneLiczby[i];
+            }
+            // console.log(wylosowaneLiczby);
+        }
+
+        function sprawdzPrawdopodobienswto() {
+            for (let i = 1; i <= 1000; i++) {
+                wylosowaneKupony[i] = sprawdzKupon();
+            }
+        }
+
+        function sprawdzKupon() {
+            return ile numerow zgadza sie z kuponem
+        }
+        
+
+    </script>
+</body>
+
+</html>
