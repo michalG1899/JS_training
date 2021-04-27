@@ -27,7 +27,7 @@
             font-size: 2em;
         }
         output#wynik {
-            font-size: 2em;
+            font-size: 1em;
             cursor: default;
         }
         td, th {
@@ -41,13 +41,13 @@
         }
 
         tr#wykresy div {
-            outline: 1px solid red;
+            outline: 5px solid red;
             background-color: red;
             width: 5px;
         }
 
         tr#wykresy td {
-            vertical-align: bottom;
+            vertical-align: middle;
         }
     </style>
 </head>
@@ -79,14 +79,23 @@
     <p>Licznik dla wyniku [6]: <output id='wynik6'>???</output></p>
 
     <table>
-    <tr id='wykresy'>
-        <td id='w1'><div></div></td>
-        <td id='w2'><div></div></td>
-        <td id='w3'><div></div></td>
-        <td id='w4'><div></div></td>
-        <td id='w5'><div></div></td>
-        <td id='w6'><div></div></td>
-    </tr>
+        <tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+        <tr>
+            <td id='o1'>--</td>
+            <td id='o2'></td>
+            <td id='o3'></td>
+            <td id='o4'></td>
+            <td id='o5'></td>
+            <td id='o6'></td>
+        </tr>
+        <tr id='wykresy'>
+            <td id='w1'><div></div></td>
+            <td id='w2'><div></div></td>
+            <td id='w3'><div></div></td>
+            <td id='w4'><div></div></td>
+            <td id='w5'><div></div></td>
+            <td id='w6'><div></div></td>
+        </tr>
     </table>
 
     <script>
@@ -147,11 +156,22 @@
             }
 
             document.querySelector('#wynik1').value = wynik1;
+            document.querySelector('#o1').textContent = (wynik1/ogolnaLiczbaRzutow * 100).toFixed(1)  + "%";
+            
             document.querySelector('#wynik2').value = wynik2;
+            document.querySelector('#o2').textContent = (wynik2/ogolnaLiczbaRzutow * 100).toFixed(1) + "%";
+            
             document.querySelector('#wynik3').value = wynik3;
+            document.querySelector('#o3').textContent = (wynik3/ogolnaLiczbaRzutow * 100).toFixed(1) + "%";
+            
             document.querySelector('#wynik4').value = wynik4;
+            document.querySelector('#o4').textContent = (wynik4/ogolnaLiczbaRzutow * 100).toFixed(1) + "%";
+            
             document.querySelector('#wynik5').value = wynik5;
+            document.querySelector('#o5').textContent = (wynik5/ogolnaLiczbaRzutow * 100).toFixed(1) + "%";
+
             document.querySelector('#wynik6').value = wynik6;
+            document.querySelector('#o6').textContent = (wynik6/ogolnaLiczbaRzutow * 100).toFixed(1) + "%";
 
         }
 
