@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oszukana kostka</title>
+    <style>
+        output#wynik {
+            font-size: 20em;
+            cursor: default;
+        }
+
+        main {
+            width: 400px;
+            margin: auto;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+        <main>
+        <h1>Rzut kostką</h1>
+
+        <button onclick='rzut(0)' ondblclick='rzut(1)'> 
+        <output id='wynik' >-</output>
+        </button>
+
+    </main>
+    <script>
+        function rzut(option){
+            if(option === 1) {
+                var w = 6;
+            } else {
+                var w = kostka();
+            }
+            var scianki = "⚀⚁⚂⚃⚄⚅";
+            document.querySelector("#wynik").value = scianki[w-1];
+        }
+
+        function kostka(){
+            return Math.floor(Math.random() * 6) + 1;
+        }
+    </script>
+
+</body>
+</html>
