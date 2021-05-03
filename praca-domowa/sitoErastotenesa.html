@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Sito Eratostenesa</title>
+</head>
+
+<body>
+    <p>Podaj liczbę n:<input id='liczba' type="number" step="1" min="0" oninput="validity.valid||(value='');"></output>
+    </p>
+    <button onclick="sito()">Sito Eratostenesa</button>
+    <table id='sito'>
+
+    </table>
+    <script>
+        function sito() {
+            document.querySelector("#sito").innerHTML = '';
+            var n = document.querySelector('#liczba').value;
+            var skr = [], i, j;
+            if (n < 2) {
+                document.querySelector("#sito").innerHTML = "Brak liczb pierwszych w podanym zakresie";
+            } else {
+                for (i = 2; i <= n; i++) skr[i] = false;
+                i = 2;
+                do {
+                    if (!skr[i]) {
+                        j = i * i;
+                        while (j <= n) {
+                            skr[j] = true;
+                            j += i;
+                        }
+                    }
+                    i++;
+                } while ((i * i) <= n);
+                for (i = 2; i <= n; i++) if (!skr[i]) {
+                    document.querySelector("#sito").innerHTML += i + ", ";
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>
