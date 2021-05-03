@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprawdzenie pesel</title>
+</head>
+
+<body>
+    <p>Podaj PESEL:<input id='pesel' type="number" step="1" min="0" oninput="validity.valid||(value='');"></output>
+        <button onclick="sprawdzPesel(document.querySelector('#pesel').value)">SPRAWDŹ PESEL</button>
+    <p>Czy PESEL poprawny: <output id='czyPoprawny'></output></p>
+    <p>Data urodzenia:<output id='dataUrodzenia'></output></p>
+    <p>Płeć: <output id='plec'></output></p>
+</body>
+<script>
+    function sprawdzPesel(pesel) {
+        var digits = [];
+        digits = ("" + pesel).split("");
+        console.log(digits);
+        
+        //plec
+        if(digits[9] % 2 == 0) {
+            document.querySelector('#plec').textContent = 'Kobieta';
+        } else {
+            document.querySelector('#plec').textContent = 'Mężczyzna';
+        }
+
+        //data_urodzenia
+
+        //cygra_kontrolna
+    }
+</script>
+
+</html>
