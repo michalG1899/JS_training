@@ -16,7 +16,8 @@
 </head>
 
 <body>
-    <button onclick="wylosujWygraneNumery()">WYLOSUJ</button><br>
+    <!-- <button onclick="wylosujWygraneNumery()">WYLOSUJ</button><br> -->
+    <button onclick="sprawdzPrawdopodobienswto()">Sprawdź 10000 kuponów</button><br>
 
     <table>
         <p>Zwycięskie numery:</p>
@@ -37,19 +38,21 @@
             <td id='o5'>-</td>
         </tr>
     </table><br>
-    <button onclick="sprawdzPrawdopodobienswto()">Sprawdź 1000 kuponów</button><br>
+    <!-- <button onclick="sprawdzPrawdopodobienswto()">Sprawdź 1000 kuponów</button><br> -->
     <table>
         <p>Prawdopodobieństwo wylosowania:</p>
         <tr>
+            <th></th>
             <th>"zero trafień"</th>
-            <th>"jedynki"</th>
-            <th>"dwójki"</th>
-            <th>"trójki"</th>
-            <th>"czwórki"</th>
-            <th>"piątki"</th>
-            <th>"szóstki"</th>
+            <th>"jedynka"</th>
+            <th>"dwójka"</th>
+            <th>"trójka"</th>
+            <th>"czwórka"</th>
+            <th>"piątka"</th>
+            <th>"szóstka"</th>
         </tr>
         <tr>
+            <td>Liczba trafionych kuponów</td>
             <td id='p0'>-</td>
             <td id='p1'>-</td>
             <td id='p2'>-</td>
@@ -58,10 +61,20 @@
             <td id='p5'>-</td>
             <td id='p6'>-</td>
         </tr>
+
+        <tr>
+            <td>Prawdopodobieństwo trafienia [%]</td>
+            <td id='pp0'>-</td>
+            <td id='pp1'>-</td>
+            <td id='pp2'>-</td>
+            <td id='pp3'>-</td>
+            <td id='pp4'>-</td>
+            <td id='pp5'>-</td>
+            <td id='pp6'>-</td>
+        </tr>
     </table><br>
     <script>
         var wylosowaneNumery = [];
-        var wylosowaneKupony = [];
         var tymczasowyKupon = [];
 
         var zero = 0;
@@ -72,44 +85,80 @@
         var piatka = 0;
         var szostka = 0;
 
-        function wylosujWygraneNumery() {
-            wylosowaneNumery = losuj();
-        }
-
         function losuj() {
             var wylosowaneLiczby = [];
             for (let i = 0; i <= 5; i++) {
                 wylosowaneLiczby[i] = Math.round(Math.random() * 49 + 1);
                 document.querySelector('#o' + i).textContent = wylosowaneLiczby[i];
             }
+
             return wylosowaneLiczby;
         }
 
-        function sprawdzPrawdopodobienswto() {
-            for (let i = 1; i <= 1000; i++) {
+        function wyczysc() {
+            zero = 0;
+            jedynka = 0;
+            dwojka = 0;
+            trojka = 0;
+            czworka = 0;
+            piatka = 0;
+            szostka = 0;
+        }
 
-                var licznik = 0;
+        function sprawdzPrawdopodobienswto() {
+            wyczysc();
+            wylosowaneNumery = losuj();
+            for (let i = 1; i <= 10000; i++) {
                 tymczasowyKupon = losuj();
+                var licznik = 0;
                 for (let j = 0; j < tymczasowyKupon.length; j++) {
                     for (let k = 0; k < wylosowaneNumery.length; k++) {
-                        if (tymczasowyKupon[i] === wylosowaneNumery[k]) {
+                        if (tymczasowyKupon[j] == wylosowaneNumery[k]) {
                             licznik++;
                         }
                     }
                 }
 
-                if (licznik === 0) {
+                if (licznik == 0) {
                     zero++;
-                } else if (licznik === 1) {
+                } else if (licznik == 1) {
                     jedynka++;
-                } else if (licznik === 2) {
+                } else if (licznik == 2) {
                     dwojka++;
-                } else if (licznik === 3) {
+                } else if (licznik == 3) {
                     trojka++;
+                } else if (licznik == 4) {
+                    czworka++;
+                } else if (licznik == 5) {
+                    piatka++;
+                } else if (licznik == 6) {
+                    szostka++;
 
 
                 }
             }
+
+            document.querySelector('#p0').textContent = zero;
+            document.querySelector('#pp0').textContent = (zero / 10000 * 100).toFixed(3);
+
+            document.querySelector('#p1').textContent = jedynka;
+            document.querySelector('#pp1').textContent = (jedynka / 10000 * 100).toFixed(3);
+
+            document.querySelector('#p2').textContent = dwojka;
+            document.querySelector('#pp2').textContent = (dwojka / 10000 * 100).toFixed(3);
+
+            document.querySelector('#p3').textContent = trojka;
+            document.querySelector('#pp3').textContent = (trojka / 10000 * 100).toFixed(3);
+
+            document.querySelector('#p4').textContent = czworka;
+            document.querySelector('#pp4').textContent = (czworka / 10000 * 100).toFixed(3);
+
+            document.querySelector('#p5').textContent = piatka;
+            document.querySelector('#pp5').textContent = (piatka / 10000 * 100).toFixed(3);
+
+            document.querySelector('#p6').textContent = szostka;
+            document.querySelector('#pp6').textContent = (szostka / 10000 * 100).toFixed(3);
+
         }
 
     </script>
