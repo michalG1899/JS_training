@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liczba pierwsza</title>
+</head>
+
+<body>
+    <p>Wpisz liczbę do sprawdzenia: <input id='liczba' type="number" step="1" min="0" oninput="validity.valid||(value='');"></output></p>
+    <button onclick="pokazWynik(document.querySelector('#liczba').value)"> Sprawdz czy jest to liczba pierwsza</button><br>
+    <output id='wynik'></output>
+
+    <script>
+        function sprawdz(liczba) {
+            for (var i = 2; i < liczba; i++)
+                if (liczba % i === 0) return false;
+            return true;
+        }
+        function pokazWynik(liczba) {
+            if(sprawdz(liczba)) {
+                document.querySelector('#wynik').textContent = `Liczba ${liczba} jest liczbą pierwszą`;
+            } else {
+                document.querySelector('#wynik').textContent = `Liczba ${liczba} nie jest liczbą pierwszą`;
+            }
+        }
+    </script>
+</body>
+
+</html>
