@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabliczka mnożenia</title>
+    <style>
+        td, th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="tabliczka()">Pokaż tabliczkę mnożenia</button>
+
+    <table id='tabliczka'>
+
+    </table>
+    <script>
+        function tabliczka() {
+            var output = '';
+            for (let i = 1; i < 10; i++) {
+                output += '<tr>';
+                    for (let j = 1; j < 10; j++) {
+                        output += '<td>' + i * j + '</td>'
+                    }
+                    output += '</tr>';
+            }
+            document.querySelector('#tabliczka').innerHTML = output;
+        }
+    </script>
+</body>
+
+</html>
