@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przelicznik temperatur</title>
+</head>
+<body>
+		Podaj temperaturę w <sup>o</sup>C
+		<input id="stopnieCelcjusza" type="number">
+		<br>
+
+        <button onclick="przeliczKelwin(document.querySelector('#stopnieCelcjusza').value)">Przelicz na Kelwiny</button>
+        <button onclick="przeliczFahrenheit(document.querySelector('#stopnieCelcjusza').value)">Przelicz na Fahrenheity</button>
+        <button onclick="przeliczRankin(document.querySelector('#stopnieCelcjusza').value)">Przelicz na Rankiny</button>
+
+	<br>
+	Wynik przeliczenia:
+    <div id='wynik2'>XX</div>
+    <script>
+        function przeliczKelwin(liczba) {
+            document.querySelector('#wynik2').innerHTML = (liczba * 1 + 273.15).toFixed(3) + " <sup>o</sup>K";
+        }
+        function przeliczFahrenheit(liczba) {
+            document.querySelector('#wynik2').innerHTML = (liczba * 1.8 + 32).toFixed(3) +" <sup>o</sup>T";
+        }
+        function przeliczRankin(liczba) {
+            document.querySelector('#wynik2').innerHTML = ((1.8) * (liczba * 1 + 273.15)).toFixed(3)+" <sup>o</sup>R";
+        }
+    </script>
+</body>
+</html>
