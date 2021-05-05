@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<sc>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td,
+        th {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Wpisz zdanie do analizy: <input id='zdanie'></p>
+    <button onclick="analizuj(document.querySelector('#zdanie').value)">Przeprowadź analizę zdania</button>
+    <div id='wynik'></div>
+
+    <table id='wynik2'>
+    </table>
+
+    <script>
+        function analizuj(str) {
+            var counts = [];
+            var ch, index, count;
+            document.querySelector('#wynik2').innerHTML = `<th>LITERA</th>
+            <th>ILOŚĆ WYSTĄPIEŃ</th>
+            <th>PROCENT WYSTĄPIEŃ</th>`;
+
+            for (index = 0; index < str.length; ++index) {
+                ch = str.charAt(index);
+                count = counts[ch];
+                counts[ch] = count ? count + 1 : 1;
+            }
+
+            for (ch in counts) {
+                console.log(ch + " count: " + counts[ch]);
+                var procentWystapien = (counts[ch] / str.length * 100).toFixed(1);
+                // document.querySelector('#wynik').innerHTML += `Litera: "${ch}"" , ilość wystąpień: ${counts[ch]} , Procent wystąpień: ${procentWystapien} % <br>`;
+                document.querySelector('#wynik2').innerHTML += `<tr><td> "${ch}" </td><td> ${counts[ch]} </td><td>  ${procentWystapien} % </td></tr>`;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
