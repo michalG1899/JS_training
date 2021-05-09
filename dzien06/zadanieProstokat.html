@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var prostokat = {
+            a : 30,
+            b : 40,
+            pole: function() {
+                return this.a * this.b;
+            },
+            obwod: function() {
+                return 2 * this.a + 2 * this.b;
+            },
+            przekatna: function() {
+                return Math.sqrt(Math.pow((this.a),2) + Math.pow((this.b),2)).toFixed(2);
+            }
+        }
+
+        console.log('Bok a: '+ prostokat.a);
+        console.log('Bok b: '+ prostokat.b);
+        console.log('Pole prostokąta: '+ prostokat.pole());
+        console.log('Obwód prostokąta: '+ prostokat.obwod());
+        console.log('Przekątna prostokąta: '+ prostokat.przekatna());
+    </script>
+</body>
+
+</html>
