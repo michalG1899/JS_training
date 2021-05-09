@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pętla while</title>
+</head>
+<body>
+
+    <p>Wybierz sumę: <input id="wybranaSuma"></p>
+    <button onclick="policzIloscKolejnychLiczb()">Policz</button><br>
+    Ilość liczb: <output id='iloscLiczb'></output>
+
+    <script>
+
+        function policzIloscKolejnychLiczb(wybranaSuma) {
+            var wybranaSuma = document.querySelector('#wybranaSuma').value;
+            var iloscLiczb = 0;
+            var suma = 0;
+            document.querySelector('output').value = '';
+            while (suma < wybranaSuma) {
+                iloscLiczb++
+                suma = suma + iloscLiczb;
+        }
+        document.querySelector('#iloscLiczb').value = iloscLiczb;
+    }
+
+    </script>
+</body>
+</html>

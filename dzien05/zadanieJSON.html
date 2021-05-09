@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th, td { border: 1px solid black; }
+        th { background-color: #ddd; }
+    </style>
+    <!--
+        https://mateusza2.github.io/Programowanie/
+    -->
+    <script src='uczniowie.js'></script>
+</head>
+<body>
+    <button onclick="analizuj()">Pokaż uczniów</button>
+
+    <table id='zam'>
+        <thead>
+            <tr>
+                <th>imie</th>
+                <th>nazwisko</th>
+                <th>oceny</th>
+                <th>średnia</th>
+            </tr>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        function analizuj() {
+
+            for(var uczen of uczniowie) {
+                let sumaOcen=0;
+                let liczbaOcen=0;
+                let sredniaOcen=0;
+                let ocenyUcznia = [];
+
+                ocenyUcznia = uczen.oceny.split(" ");
+                for(var ocena of ocenyUcznia) {
+                    ocena = ocena * 1;
+                    sumaOcen += ocena;
+                    liczbaOcen++;
+            }
+            sredniaOcen = (sumaOcen / liczbaOcen).toFixed(2);
+            document.querySelector('#zam').innerHTML += `<tr><td> ${uczen.imie} </td><td> ${uczen.nazwisko} </td><td>${uczen.oceny} </td><td> ${sredniaOcen} </td></tr>`;
+
+        }
+    }
+    </script>
+</html>

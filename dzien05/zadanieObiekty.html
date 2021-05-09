@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th, td { border: 1px solid black; }
+        th { background-color: #ddd; }
+    </style>
+</head>
+<body>
+    <table id='zam'>
+        <thead>
+            <tr>
+                <th>rodzaj pizzy</th>
+                <th>rozmiar</th>
+                <th>cena</th>
+                <th>dodatki</th>
+            </tr>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        var zamowienie = [
+            {"typ": "hawajska", "rozmiar": "mała", "cena": 19.99, "dodatki": []},
+            {"typ": "margerita", "rozmiar": "duża", "cena": 17.99, "dodatki": ["oliwki", "cebula"]},
+            {"typ": "wegetariańska", "rozmiar": "malutka", "cena": 15.99, "dodatki":["kiełbasa"]}
+        ]
+
+        var zam = document.querySelector('#zam')
+
+        for (var pizza of zamowienie){
+            var wiersz = document.createElement('tr')
+            var komT = document.createElement('td')
+            var komR = document.createElement('td')
+            var komC= document.createElement('td')
+            var komD= document.createElement('td')
+            komT.textContent = pizza['typ']
+            // komR.textContent = pizza['rozmiar']
+            komR.textContent = pizza.rozmiar;
+            komC.textContent = pizza['cena']
+            komD.textContent = pizza['dodatki']
+
+            wiersz.append(komT)
+            wiersz.append(komR)
+            wiersz.append(komC)
+            wiersz.append(komD)
+            zam.append(wiersz)
+        }
+
+    /* TODO:
+        dopisać kod wyświetlający pozostałe kolumny
+    */
+    </script>
+</body>
+</html>
