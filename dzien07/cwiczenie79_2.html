@@ -1,0 +1,65 @@
+<script>
+    class Student {
+        constructor(imie, nazwisko, wiek) {
+            this.imie = imie;
+            this.nazwisko = nazwisko;
+            this.wiek = wiek;
+            this.oceny = [];
+        }
+    }
+
+    listaStudentow = [];
+
+    while (true) {
+
+        let menu = prompt("Witaj w systemie:\nD-dodaj, P-pokaz, U-usun, Z-zmien, O - dodaj ocenę K-koniec").toUpperCase();
+
+        if (menu == "D") {
+            let imie = prompt("Podaj imię studenta: ");
+            let nazwisko = prompt("Podaj nazwisko studenta: ");
+            let wiek = prompt("Podaj wiek studenta: ");
+            let student1 = new Student(imie, nazwisko, wiek);
+            listaStudentow.push(student1);
+        }
+        else if (menu == "P") {
+            for (let student of listaStudentow) {
+                console.log(`Imię: ${student.imie}, Nazwisko: ${student.nazwisko}, Wiek: ${student.wiek} | OCENY: ${student.oceny}`);
+            }
+        }
+        else if (menu == "U") {
+            console.log("modul usuwania");
+            let nazwisko = prompt("Podaj nazwisko do usunięcia");
+            for (let index in listaStudentow) {
+                if (listaStudentow[index].nazwisko == nazwisko) {
+                    listaStudentow.splice(index, 1);
+                }
+            }
+        }
+        else if (menu == "Z") {
+            let nazwisko = prompt("Podaj nazwisko studenta do zmiany");
+            let noweImie = prompt("Podaj nowe imię");
+            let noweNazwisko = prompt("Podaj nowe nazwisko");
+
+            for (let stud of listaStudentow) {
+                if (stud.nazwisko == nazwisko) {
+                    stud.nazwisko = (noweNazwisko != "") ? noweNazwisko : nazwisko;
+                    stud.imie = (noweImie != "") ? noweImie : imie;
+                }
+            }
+        }
+        else if (menu == "O") {
+            let nazwisko = prompt("Podaj nazwisko studenta do wpisania oceny");
+            let ocena = prompt("Podaj ocenę");
+            for (let stud of listaStudentow) {
+                if (stud.nazwisko == nazwisko) {
+                    stud.oceny.push(ocena);
+                    break;
+                }
+            }
+        }
+        else if (menu == "K") {
+            console.log("Koniec programu");
+            break;
+        }
+    }
+</script>

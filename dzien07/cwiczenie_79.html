@@ -1,0 +1,97 @@
+<script>
+    class Kursant {
+        constructor(imie, nazwisko, email) {
+            this.imie = imie;
+            this.nazwisko = nazwisko;
+            this.email = email;
+        }
+
+        przedstawSie() {
+            console.log(`Imię: ${this.imie}, nazwisko: ${this.nazwisko}`);
+        }
+    }
+
+    class Kurs {
+        constructor(nazwa, miasto) {
+            this.nazwa = nazwa;
+            this.miasto = miasto;
+            this.listaKursantow = [];
+        }
+    }
+    let listaKursow = [];
+
+    while (true) {
+
+        let menu = prompt("1.Dodaj kurs, 2.Lista kursów, 3.Dodaj kursanta do kursu, 4.Lista kursantów na kursie, 5.Koniec , 6. Usuń kursanta");
+
+        if (menu == "1") {
+            let nazwa = prompt("Podaj nazwe kursu: ");
+            let miasto = prompt("Podaj miasto: ");
+
+            let kurs = new Kurs(nazwa, miasto);
+            listaKursow.push(kurs);
+        }
+        else if (menu == "2") {
+            for (let kurs of listaKursow) {
+                console.log(`Kurs: ${kurs.nazwa} | Miasto: ${kurs.miasto}`)
+            }
+        }
+        else if (menu == "3") {
+            let nazwa = prompt("Podaj nazwe kursu: ");
+            for (let kurs of listaKursow) {
+                if (kurs.nazwa == nazwa) {
+                // if (kurs.nazwa == nazwa && kurs.listaKursantow.length < 3) {
+                        if (kurs.listaKursantow.length >= 3) {
+                            alert("Limit 3 osób wyczerpany");
+                            break;
+                        }
+                    let imie = prompt("Podaj imie kursanta: ")
+                    let nazwisko = prompt("Podaj nazwisko kursanta: ")
+                    let email = prompt("Podaj email kursanta: ")
+
+                    let kursant = new Kursant(imie, nazwisko, email);
+                    kurs.listaKursantow.push(kursant);
+                     break;
+                } else {
+                    alert("Nie ma takiego kursu");
+                }
+            }
+    }
+        else if (menu == "4") {
+            let nazwa = prompt("Podaj nazwe kursu: ");
+
+            for (let kurs of listaKursow) {
+                if (kurs.nazwa == nazwa) {
+                    console.log(`Kursanci na kursie ${kurs.nazwa}`);
+                    for (let kursant of kurs.listaKursantow) {
+                        kursant.przedstawSie();
+                    }
+                }
+            }
+        }
+        else if (menu == "5") {
+            console.log("Koniec programu");
+            break;
+        }
+        else if(menu == "6"){
+        let nazwa = prompt("Podaj nazwe kursu: ");
+        let nazwisko = prompt("Podaj nazwisko kursanta do usuniecia: ")
+        for (let kurs of listaKursow) {
+                if (kurs.nazwa == nazwa) {
+                    for (let index in kurs.listaKursantow) {
+                        if(kurs.listaKursantow[index].nazwisko == nazwisko) {
+                            kurs.listaKursantow.splice(index, 1);
+                        }
+                    }
+                }
+            }
+    }
+
+        else {
+            console.log("Nierozpoznana opcja menu");
+        }
+
+    }
+    // 6. usuwanie kursanta
+
+</script>

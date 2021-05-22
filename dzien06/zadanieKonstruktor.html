@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BMI</title>
+</head>
+
+<body>
+    <script>
+        function Osoba(waga, wzrost) {
+            this.waga = waga,
+                this.wzrost = wzrost,
+                this.bmi = function () {
+                    return (waga / (wzrost * wzrost)).toFixed(2)
+                }
+        }
+
+        var o1 = new Osoba(70, 1.81);
+        console.log("BMI tej osoby to: " + o1.bmi())
+
+        var o2 = new Osoba(55, 1.59);
+        console.log("BMI tej osoby to: " + o2.bmi())
+        
+    </script>
+</body>
+
+</html>
