@@ -40,7 +40,6 @@
             let nazwa = prompt("Podaj nazwe kursu: ");
             for (let kurs of listaKursow) {
                 if (kurs.nazwa == nazwa) {
-                // if (kurs.nazwa == nazwa && kurs.listaKursantow.length < 3) {
                         if (kurs.listaKursantow.length >= 3) {
                             alert("Limit 3 osób wyczerpany");
                             break;
@@ -81,17 +80,15 @@
                     for (let index in kurs.listaKursantow) {
                         if(kurs.listaKursantow[index].nazwisko == nazwisko) {
                             kurs.listaKursantow.splice(index, 1);
+                            break;
                         }
                     }
                 }
             }
     }
-
         else {
             console.log("Nierozpoznana opcja menu");
         }
 
     }
-    // 6. usuwanie kursanta
-
 </script>

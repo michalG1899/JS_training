@@ -1,0 +1,59 @@
+<script>
+    class Pracownik {
+        constructor(imie, nazwisko, kontrakt, pensja) {
+            this.imie = imie;
+            this.nazwisko = nazwisko;
+            this.kontrakt = kontrakt;
+            this.pensja = pensja;
+        }
+    }
+    class DzialKadr {
+        constructor() {
+            this.listaPracownikow = [];
+        }
+
+        dodaj() { }
+        pokaz() { }
+        usun() { }
+        zmien() { }
+    }
+    class Firma extends DzialKadr {
+        constructor(nazwaFirmy) {
+            super();
+            this.nazwaFirmy = nazwaFirmy;
+            this.menu();
+        }
+        
+            menu(){
+
+                while (true) {
+                    let menu = prompt(`Witaj w firmie ${this.nazwaFirmy}\nD-dodaj, P-pokaz, U-usun, Z-zmien kontrakt, K-koniec`).toUpperCase();
+
+                    if (menu == "D") {
+
+                    }
+                    else if (menu == "P") {
+
+                    }
+                    else if (menu == "U") {
+
+                    }
+                    else if (menu == "Z") {
+
+                    }
+                    else if (menu == "K") {
+                        console.log("Koniec programu");
+                        break;
+                    }
+                    else {
+                        console.log("Nierozpoznana opcja menu");
+                    }
+                }
+
+            }
+
+        }
+
+        let firma = new Firma("ING Company");
+
+</script>
