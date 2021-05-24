@@ -12,10 +12,35 @@
             this.listaPracownikow = [];
         }
 
-        dodaj() { }
-        pokaz() { }
-        usun() { }
-        zmien() { }
+        dodaj(imie, nazwisko, kontrakt, pensja) {
+            let obj = new Pracownik(imie, nazwisko, kontrakt, pensja);
+            this.listaPracownikow.push(obj);
+            console.log("Pracownik pomyślnie dodany");
+        }
+        pokaz() {
+            for (let pracownik of this.listaPracownikow) {
+                console.log(`Imię: ${pracownik.imie}, nazwisko: ${pracownik.nazwisko}, kontrakt: ${pracownik.kontrakt}, pensja: ${pracownik.pensja}`);
+            }
+        }
+        usun(nazwisko) {
+            for (let index in this.listaPracownikow) {
+                if (this.listaPracownikow[index].nazwisko == nazwisko) {
+                    this.listaPracownikow.splice(index, 1);
+                    console.log("Pracownik pomyślnie usunięty");
+                }
+            }
+        }
+        zmien(nazwisko, nowaPensja) {
+            for (let pracownik of this.listaPracownikow) {
+                if (pracownik.nazwisko == nazwisko) {
+                    if(pracownik.kontrakt == "staż") {
+                        pracownik.kontrakt = "etat";
+                    } 
+                    pracownik.pensja = nowaPensja;
+                    break;
+                }
+            }
+        }
     }
     class Firma extends DzialKadr {
         constructor(nazwaFirmy) {
@@ -23,37 +48,51 @@
             this.nazwaFirmy = nazwaFirmy;
             this.menu();
         }
-        
-            menu(){
 
-                while (true) {
-                    let menu = prompt(`Witaj w firmie ${this.nazwaFirmy}\nD-dodaj, P-pokaz, U-usun, Z-zmien kontrakt, K-koniec`).toUpperCase();
+        menu() {
 
-                    if (menu == "D") {
+            while (true) {
+                let menu = prompt(`Witaj w firmie ${this.nazwaFirmy}\nD-dodaj, P-pokaz, U-usun, Z-zmien kontrakt, K-koniec`).toUpperCase();
 
-                    }
-                    else if (menu == "P") {
+                if (menu == "D") {
+                    let imie = prompt("Podaj imię pracownika: ");
+                    let nazwisko = prompt("Podaj nazwisko pracownika: ");
+                    let kontrakt = prompt("Podaj kontrakt pracownika [staż/etat]: ");
 
+                    if (kontrakt == "staż") {
+                        let pensja = 1000;
+                        this.dodaj(imie, nazwisko, kontrakt, pensja);
+                    } else {
+                        let pensja = parseInt(prompt("Podaj pensję pracownika:"));
+                        this.dodaj(imie, nazwisko, kontrakt, pensja);
                     }
-                    else if (menu == "U") {
 
-                    }
-                    else if (menu == "Z") {
-
-                    }
-                    else if (menu == "K") {
-                        console.log("Koniec programu");
-                        break;
-                    }
-                    else {
-                        console.log("Nierozpoznana opcja menu");
-                    }
                 }
-
+                else if (menu == "P") {
+                    this.pokaz();
+                }
+                else if (menu == "U") {
+                    let nazwisko = prompt("Podaj nazwisko do usunięcia");
+                    this.usun(nazwisko);
+                }
+                else if (menu == "Z") {
+                    let nazwisko = prompt("Podaj nazwisko pracownika:");
+                    let nowaPensja = prompt("Podaj pensję pracownika");
+                    this.zmien(nazwisko, nowaPensja);
+                }
+                else if (menu == "K") {
+                    console.log("Koniec programu");
+                    break;
+                }
+                else {
+                    console.log("Nierozpoznana opcja menu");
+                }
             }
 
         }
 
-        let firma = new Firma("ING Company");
+    }
+
+    let firma = new Firma("ING Company");
 
 </script>
