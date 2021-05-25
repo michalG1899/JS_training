@@ -17,7 +17,7 @@ class Przychodnia {
     }
 
     pokazListePacjentow() {
-        console.log("Lista pacjentów:")
+        console.log(`Lista pacjentów w przychodni ${this.nazwa}:`)
         for (let pacjent of this.listaPacjentow) {
             console.log(`Imię: ${pacjent.imie}, nazwisko: ${pacjent.nazwisko}`);
         }
@@ -83,6 +83,8 @@ function menuPrzychodnia() {
                 przychodnia.dodajPacjenta(pacjent);
                 console.log(`Pomyślnie dodano pacjenta ${nazwisko} do przychodni ${przychodnia.nazwa}`);
                 break;
+            } else {
+                console.log("Nie ma takiej przychodni");
             }
         }
     } else if (menu1 == 3) {
@@ -112,18 +114,14 @@ function menuPacject() {
         let nazwaPrzychodni = prompt("Podaj nazwę przychodni:");
         for (let przychodnia of listaPrzychodni) {
             if(przychodnia.nazwa == nazwaPrzychodni) {
+                let nazwiskoPacjenta = prompt("Podaj nazwisko pacjenta:");
                 for (let pacjent of przychodnia.listaPacjentow) {
-                    let nazwiskoPacjenta = prompt("Podaj nazwisko pacjenta:");
                     if(nazwiskoPacjenta == pacjent.nazwisko) {
                         let choroba = prompt("Podaj chorobę pacjenta:");
                         pacjent.dodajChorobe(choroba);
                         break;
-                    } else {
-                        console.log("Brak pacjenta o takim nazwisku");
-                    }
-                }
-            } else {
-                console.log("Nie ma takiej przychodni");
+                    } 
+                } break;
         }
 
         }
@@ -131,17 +129,18 @@ function menuPacject() {
         let nazwaPrzychodni = prompt("Podaj nazwę przychodni:");
         for (let przychodnia of listaPrzychodni) {
             if(przychodnia.nazwa == nazwaPrzychodni) {
+                let nazwiskoPacjenta = prompt("Podaj nazwisko pacjenta:");
                 for (let pacjent of przychodnia.listaPacjentow) {
-                    let nazwiskoPacjenta = prompt("Podaj nazwisko pacjenta:");
                     if(nazwiskoPacjenta == pacjent.nazwisko) {
                         console.log(`Choroby pacjenta ${pacjent.imie} ${pacjent.nazwisko} :`);
                        for (let choroba of pacjent.listaChorob) {
                            console.log(choroba);
                        }
+                       break;
                     } else {
                         console.log("Brak pacjenta o takim nazwisku");
                     }
-                }
+                } break;
             } else {
                 console.log("Nie ma takiej przychodni");
         }
