@@ -37,9 +37,9 @@ class Pacjent {
 
     pokazChoroby() {
         console.log(`Lista chorób pacjenta: ${this.nazwisko}: `)
-    for (let choroba of this.listaChorob) {
-        console.log(`${choroba.nazwa}`);
-    }
+        for (let choroba of this.listaChorob) {
+            console.log(`${choroba.nazwa}`);
+        }
     }
 }
 
@@ -85,15 +85,18 @@ function menuPrzychodnia() {
 
         let nazwaPrzychodni = prompt("Do której przychodni zapisać pacjenta - podaj nazwę przychodni:");
 
+        let czyPrzychodniaIstnieje = false;
         for (let przychodnia of listaPrzychodni) {
             if (nazwaPrzychodni == przychodnia.nazwa) {
                 przychodnia.dodajPacjenta(pacjent);
                 console.log(`Pomyślnie dodano pacjenta ${nazwisko} do przychodni ${przychodnia.nazwa}`);
+                czyPrzychodniaIstnieje = true;
                 break;
-            } else {
-                console.log("Nie ma takiej przychodni");
             }
+        } if (!czyPrzychodniaIstnieje) {
+            console.log("Nie ma takiej przychodni");
         }
+
     } else if (menu1 == 3) {
         console.log("Lista przychodni");
         for (let przychodnia of listaPrzychodni) {
@@ -108,10 +111,7 @@ function menuPrzychodnia() {
                 break;
             }
         }
-    } else {
-
     }
-
 }
 
 function menuPacject() {
@@ -119,8 +119,10 @@ function menuPacject() {
 
     if (menu2 == 1) {
         let nazwaPrzychodni = prompt("Podaj nazwę przychodni:");
+        let czyPrzychodniaIstnieje = false;
         for (let przychodnia of listaPrzychodni) {
             if (przychodnia.nazwa == nazwaPrzychodni) {
+                czyPrzychodniaIstnieje = true;
                 let nazwiskoPacjenta = prompt("Podaj nazwisko pacjenta:");
                 for (let pacjent of przychodnia.listaPacjentow) {
                     if (nazwiskoPacjenta == pacjent.nazwisko) {
@@ -132,31 +134,35 @@ function menuPacject() {
             }
 
         }
+        if (!czyPrzychodniaIstnieje) {
+            console.log("Nie ma takiej przychodni");
+        }
+
     } else if (menu2 == 2) {
         let nazwaPrzychodni = prompt("Podaj nazwę przychodni:");
         let czyPrzychodniaIstnieje = false;
         for (let przychodnia of listaPrzychodni) {
-            if(przychodnia.nazwa == nazwaPrzychodni) {
+            if (przychodnia.nazwa == nazwaPrzychodni) {
                 czyPrzychodniaIstnieje = true;
                 let nazwiskoPacjenta = prompt("Podaj nazwisko pacjenta:");
                 let czyPacjentIstnieje = false;
                 for (let pacjent of przychodnia.listaPacjentow) {
-                    if(nazwiskoPacjenta == pacjent.nazwisko) {
+                    if (nazwiskoPacjenta == pacjent.nazwisko) {
 
                         console.log(`Choroby pacjenta ${pacjent.imie} ${pacjent.nazwisko} :`);
-                       for (let choroba of pacjent.listaChorob) {
-                           console.log(choroba);
-                       }
+                        for (let choroba of pacjent.listaChorob) {
+                            console.log(choroba);
+                        }
 
-                       czyPacjentIstnieje = true;
-                       break;
-                    } 
-                } if (!czyPacjentIstnieje){
+                        czyPacjentIstnieje = true;
+                        break;
+                    }
+                } if (!czyPacjentIstnieje) {
                     console.log("Brak pacjenta o takim nazwisku");
-            } 
-        }
+                }
+            }
 
-        } if (!czyPrzychodniaIstnieje){
+        } if (!czyPrzychodniaIstnieje) {
             console.log("Nie ma takiej przychodni");
         }
     }
