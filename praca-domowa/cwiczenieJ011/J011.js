@@ -34,6 +34,13 @@ class Pacjent {
     dodajChorobe(choroba) {
         this.listaChorob.push(choroba);
     }
+
+    pokazChoroby() {
+        console.log(`Lista chorób pacjenta: ${this.nazwisko}: `)
+    for (let choroba of this.listaChorob) {
+        console.log(`${choroba.nazwa}`);
+    }
+    }
 }
 
 function menu() {
@@ -113,38 +120,44 @@ function menuPacject() {
     if (menu2 == 1) {
         let nazwaPrzychodni = prompt("Podaj nazwę przychodni:");
         for (let przychodnia of listaPrzychodni) {
-            if(przychodnia.nazwa == nazwaPrzychodni) {
+            if (przychodnia.nazwa == nazwaPrzychodni) {
                 let nazwiskoPacjenta = prompt("Podaj nazwisko pacjenta:");
                 for (let pacjent of przychodnia.listaPacjentow) {
-                    if(nazwiskoPacjenta == pacjent.nazwisko) {
+                    if (nazwiskoPacjenta == pacjent.nazwisko) {
                         let choroba = prompt("Podaj chorobę pacjenta:");
                         pacjent.dodajChorobe(choroba);
                         break;
-                    } 
+                    }
                 } break;
-        }
+            }
 
         }
     } else if (menu2 == 2) {
         let nazwaPrzychodni = prompt("Podaj nazwę przychodni:");
+        let czyPrzychodniaIstnieje = false;
         for (let przychodnia of listaPrzychodni) {
             if(przychodnia.nazwa == nazwaPrzychodni) {
+                czyPrzychodniaIstnieje = true;
                 let nazwiskoPacjenta = prompt("Podaj nazwisko pacjenta:");
+                let czyPacjentIstnieje = false;
                 for (let pacjent of przychodnia.listaPacjentow) {
                     if(nazwiskoPacjenta == pacjent.nazwisko) {
+
                         console.log(`Choroby pacjenta ${pacjent.imie} ${pacjent.nazwisko} :`);
                        for (let choroba of pacjent.listaChorob) {
                            console.log(choroba);
                        }
+
+                       czyPacjentIstnieje = true;
                        break;
-                    } else {
-                        console.log("Brak pacjenta o takim nazwisku");
-                    }
-                } break;
-            } else {
-                console.log("Nie ma takiej przychodni");
+                    } 
+                } if (!czyPacjentIstnieje){
+                    console.log("Brak pacjenta o takim nazwisku");
+            } 
         }
 
+        } if (!czyPrzychodniaIstnieje){
+            console.log("Nie ma takiej przychodni");
         }
     }
 }
